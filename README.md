@@ -1,3 +1,12 @@
 # CFR
-Final Project in BSc Csit
-[Click to open project](http://luckyarjun0000.epizy.com/?i=1) 🎉
+Final Project in BSc Csit <br />
+Project title 
+## Course for Revise | Learn By Web
+
+- Languages used:
+  - HTML
+  - CSS | Bootstrap
+  - JavaScript | jQuery
+  - PHP
+- installing the project
+  - using xammp ( Apache , MySql )
