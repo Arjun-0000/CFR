@@ -1,5 +1,5 @@
 <?php 
-session_start();
+// session_start();
 
 //this only takes input from the user of login or sign up
 
@@ -13,18 +13,18 @@ if(isset($_POST['login'])){
 	include('dbconnection.php');
     $email = $_POST['email'];
     $password = $_POST['pass'];
-
+echo ("arjun");
     // echo "Email:" .$email. " Password:" .$password. " ";  
-    $sql = "SELECT Email_Address, Pswd, Username FROM userinfo";
+    $sql = "SELECT Email_Address, Password, Username FROM userinfo";
     $query = mysqli_query($con, $sql);
 
     while( $row = mysqli_fetch_assoc($query)) {
-        echo '<br/>';
+        // echo '<br/>';
         $emailDb = $row['Email_Address'];
-        $passwordDb = $row['Pswd'];
+        $passwordDb = $row['Password'];
         if($email == $emailDb && $password == $passwordDb){
             $userNameForStore = $row['Username'];
-            $_SESSION['usernamefortore'] = $userNameForStore;
+            // $_SESSION['usernamefortore'] = $userNameForStore;
 
 
             
@@ -32,8 +32,9 @@ if(isset($_POST['login'])){
             //     alert(userNameGet);
             //             // echo 'email and password matched';
             //include('../Play/game.html');
-            header("Location: ../Play/game.php");
-            break;
+            // header("Location: ../?id=$userNameForStore&");
+            echo "login sucessful";
+            //break;
         } else {
             echo 'incorrect email and password';
         }
@@ -80,9 +81,3 @@ if(isset($_POST['signup'])){
 //header("Location: ../index.php");
 ?>
 
-<html>
-    <head>
-        <?php echo $userNameForStore; ?>
-    </head>
-    
-</html>

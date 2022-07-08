@@ -1,6 +1,6 @@
-// list
+// list - takes heading in the subject
 var list=document.querySelectorAll('.topics>li');
-
+// stores the details to show in the right part
 var topicToShow=document.querySelectorAll('.topic-detail>div');
 
 for(var i=0;i<list.length;i++){

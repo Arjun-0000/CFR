@@ -2,10 +2,10 @@
 //dont make edit to php section
 session_start();
 
-$con = mysqli_connect('localhost','root','','coursera');
-echo "<script src='../js/coursera.js'></script>";
+$con = mysqli_connect('localhost','root','','learnbyweb');
+// echo "<script src='../js/coursera.js'></script>";
 //$usenameFromJs = "<script>document.write(userNameForShow);//console.log(userNameForShow);</script>";
-$var_value = $_SESSION['usernamefortore'];
+$var_value = $_SESSION['UserID'];
 $sql = "SELECT First_Name, Middle_Name, Last_Name FROM userinfo WHERE Username = '$var_value'";
 $query = mysqli_query($con, $sql);
 while( $row = mysqli_fetch_assoc($query)) {
@@ -24,6 +24,9 @@ $dbclose = mysqli_close($con);
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link type="text/css" rel="stylesheet" href="../css/bootstrap.min.css">
     <link type="text/css" rel="stylesheet" href="../Play/game.css">
+    <script>
+        console.log("session : " + "<?php $var_value ?>");
+    </script>
 
 </head>
 
@@ -37,7 +40,7 @@ $dbclose = mysqli_close($con);
             <h1>
                 <!--this part pasing the User Full Name
                 It is hidden content dont show in the web page -->
-                <form action="../index.php" method="post" id="formToPassName">
+                <form action="../" method="post" id="formToPassName">
                     <input type="hidden" name="userNameFromGame" value="<?php echo $UserName;?>">
                 </form>
                 <button type="submit" form="formToPassName" class="buttonToIcon" name="fromGame">
@@ -45,7 +48,7 @@ $dbclose = mysqli_close($con);
                 </button>
                 <!-- hidden content up to here -->
 
-                Welcome Back, <spam id="usenameForWelcome"><?php echo $UserName;?></spam>
+                Welcome Back, <spam id="usenameForWelcome"><?php echo $_SESSION["UserID"]?></spam>
             </h1>
                 <div class="col-md-8 border left-game-part">
                     <div class="title">
@@ -68,20 +71,22 @@ $dbclose = mysqli_close($con);
                     </div>
                     <button class="btn-primary" id="next">Next</button>
                     
-                    <a href="game.php">
+                    <!-- a href="game.php" -->
+                    <!--
                     <button class="btn-success" id="prev">Start Over</button>
-                    </a>
                         
-                    <!-- <button class="btn-success" id="start" onclick="startOver()">
+                    <button class="btn-success" id="start" onclick="startOver()">
                         Start Over
             
                     </button> -->
+
                     <form id="mySubmitForm" action="submitScore.php" method="POST">
                         <input type="hidden" name="username" value="<?php echo $userFullName ?>">
                         <input type="hidden" name="score" id="scoreField">
+                        <input type="hidden" name="userId" id="userId" value="">
                         <!-- <input type="submit" value="Submit Score" id="start"> -->
                     </form>
-                    <button type="submit" form="mySubmitForm" class="btn-success" id="start">Submit Score</button>
+                    <button type="submit" form="mySubmitForm" class="btn-success" id="scoreSubmit">Submit Score</button>
                    
                     <hr>
                     <!-- <div class="title">
@@ -125,7 +130,7 @@ $dbclose = mysqli_close($con);
                         </tr>
                         
                             <?php
-                            $conDis = mysqli_connect('localhost','root','','coursera');
+                            $conDis = mysqli_connect('localhost','root','','learnbyweb');
                             $sqlDis = 
                             "SELECT FullName, Score 
                             FROM scorelist ORDER BY Score DESC";
@@ -150,7 +155,7 @@ $dbclose = mysqli_close($con);
 
     </section>
     <!-- <script src="../js/coursera.js"></script> -->
-    <script src="../Play/game.js"></script>
+    <script src="./game.js"></script>
     
     
     

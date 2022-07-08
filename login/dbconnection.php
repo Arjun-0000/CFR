@@ -1,7 +1,7 @@
 <?php
 
 //connection to mysql server
-$con = mysqli_connect('localhost','root','','coursera');
+$con = mysqli_connect('localhost','root','','learnbyweb');
 //usaually it take only server, username, password in above 
 // we have already created database externally in phpmyadmin 
 //so add db_name in fourth  parameter

@@ -4,7 +4,7 @@
 date_default_timezone_set("Asia/Kathmandu");
 
 //connection to mysql server and coursera database
-$createtablecon = new mysqli('localhost','root','','coursera');
+$createtablecon = new mysqli('localhost','root','','learnbyweb');
 
 if($createtablecon->connect_error){
     die("connection failed " . $createtablecon->connect_error);
@@ -35,6 +35,10 @@ if($createtablecon->query($createtablesql)==TRUE){
     echo "failed to create table" . mysqli_error($createtablecon);
 }
 echo "<br>hello world <br>";
+
+
+
+
 $createtablecon->close();
 
 ?>

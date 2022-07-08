@@ -11,7 +11,7 @@ if(!$createdbcon){
 }
 
 //for creating database name 'coursera' in the server localhost/other host
-$createdbsql = "CREATE DATABASE coursera";
+$createdbsql = "CREATE DATABASE learnbyweb";
 $createdbquery = mysqli_query($createdbcon, $createdbsql);
 if(!$createdbquery){
     echo "creating database unsucessful" . "<br/>" . mysqli_error($createdbcon);

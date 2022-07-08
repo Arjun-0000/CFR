@@ -1,0 +1,42 @@
+XMLHttpRequest
+
+- Constructor
+- Properties
+  - **readyState** r
+    - 0 - before Open ( 0-||-0 )
+    - 1 - open (status 0)
+    - 2 - 
+    - 3 - rxHR.onprogress
+    - 4 - xHR.DONE is 4
+  - **response** r
+  - **responseText** r - text only
+  - responseType - can declare ttype : "", blob, arraybuffer, document, json, ms-stream
+  - responseURL r
+  - responseXML r - server shoulsd specify content-type/xml or application/xml, IF NOT use overrideMimeType method
+  - status r
+  - statusText r - "OK" / "Not Found" or (unsent and open's - null)
+  - timeout - after open() and before close() 
+  - upload r
+  - withCredentials
+- methods
+  - abort
+  - getAllResponseHeaders()
+  - getResponseHeader()
+  - **open**() - 3 parameters : type, serverfile, true/false
+  - overrideMimeType() - use to override the file type used by RespponseType
+  - send()
+  - setRequestHeader()
+- events
+  - **abort** sytoped by user
+  - **error** failed
+  - **load** Complete
+  - loadend - (abort, error, load)
+  - loadstart
+  - **progress** % 
+    - e.lengthComputable ? loaded and total : ''
+    - download ko up
+    - upload 's 
+      - XHP.upload use
+  - **readystatechange**
+  - timeout
+  

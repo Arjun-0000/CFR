@@ -1,3 +1,4 @@
+    
     const questions = [
         {
             question: "What is the sum of 130+125+191?",
@@ -55,12 +56,15 @@
 
     let checkSelect;
 
+    document.getElementById('userId').value = document.getElementById('usenameForWelcome').innerHTML;
+
     var quiz = document.getElementById('quiz');
     var quizHeadQues = document.getElementById('quizQuestionPart');
     var quizBodyAns = document.getElementById('quizAnswerPart');
     var nextBtn = document.getElementById('next');
     var prevBtn = document.getElementById('prev');
     var startBtn = document.getElementById('start');
+    var scoreSubmit = document.getElementById('scoreSubmit');
     var quesIndex = document.getElementById('questionNumber');
     var quesContent = document.getElementById('questionContent');
     var aans = document.getElementById('a-ans');
@@ -69,7 +73,7 @@
     var dans = document.getElementById('d-ans');
     var scoreval = document.getElementById('scoreValue');
     var scoreSub = document.getElementById('scoreField');
-
+console.log("arjun");
     //initiate first question automatically
     resumeGame();
 
@@ -88,13 +92,16 @@
             let nextQuestion = createNormalQuestion(questionCounter);
 
             quiz.prepend(nextQuestion);
+
+            scoreSubmit.style.display = "none";
         }
         else{
             let score = displayScore();
             quiz.append(score);
             nextBtn.style.display ='none';
-            prevBtn.style.display = 'block';
-            startBtn.style.display = 'block';
+            // prevBtn.style.display = 'block';
+            // startBtn.style.display = 'block';
+            scoreSubmit.style.display = 'block';
             //hide next and show start over
         }
         checkSelect = false;
@@ -121,6 +128,7 @@
            }
         }
     }
+
     function createEasyQuestion(){
         let questionNo = easyLevel[Math.round(Math.random()*(easyLevel.length - 1))];
         quesContent.innerHTML = questions[questionNo].question;
@@ -146,7 +154,7 @@
         dans.innerHTML = questions[questionNo].choices[3];
     }
     function createNormalQuestion(questionNo){
-        quesIndex.innerHTML = questionNo + 1;
+        quesIndex.innerHTML = questionNo + 1 ;
         quesContent.innerHTML = questions[questionNo].question;
         aans.innerHTML = questions[questionNo].choices[0];
         bans.innerHTML = questions[questionNo].choices[1];
